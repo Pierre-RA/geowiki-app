@@ -1,4 +1,4 @@
 export class Config {
-  static apiUrl = "https://geowiki.com/api";
+  static apiUrl = "https://geo-wiki.anthillsolutions.net";
   static token = "";
 }

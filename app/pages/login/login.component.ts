@@ -44,11 +44,12 @@ export class LoginComponent implements OnInit {
     // });
   }
   login() {
-    this.userService.login(this.user)
-    .subscribe(
-      () => this.router.navigate(["/list"]),
-      (error) => alert("Unfortunately we could not find your account.")
-    );
+    this.router.navigate(["/activities"]);
+//    this.userService.login(this.user)
+//    .subscribe(
+//      () => this.router.navigate(["/list"]),
+//      (error) => alert("Unfortunately we could not find your account.")
+//    );
   }
   signUp() {
     this.userService.register(this.user)

@@ -1,0 +1,42 @@
+{
+  "results": [{
+    "latitude": "6.313",
+    "longitude": "80.1242",
+    "place": "Colombo, Sri-Lanka",
+    "date_created": "1495876061",
+    "date_modified": "1495876061",
+    "date_published": "1495876061",
+    "image": "https://en.wikipedia.org/wiki/Galle#/media/File:Galle_City_Places.jpg",
+    "availability": {
+      "start": "1495876061",
+      "end": "1500000010",
+      "time": [{
+        "start": 800,
+        "end": 1200
+      }, {
+        "start": 1400,
+        "end": 2200
+      }]
+    },
+    "price": {
+      "currency": "lkr",
+      "amount": 10000.12
+    },
+    "description": {
+      "en": "Enjoy the visit of the Galle Fort, an amazing place unique in it's world. With me, you can visit the place from dawn to dusk."
+    },
+    "type": "foot",
+    "duration": "200",
+    "owner": {
+      "name": "Kasun Samarasinghe",
+      "country": "lk",
+      "languages": [
+        "en", "si"
+      ],
+      "contact": {
+        "phone": "+41799646355",
+        "email": "kasun@anthillsolutions.ch"
+      }
+    }
+  }]
+}

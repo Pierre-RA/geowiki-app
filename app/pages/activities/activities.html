@@ -1,0 +1,11 @@
+<GridLayout>
+  <ListView [items]="activityList" class="small-spacing">
+    <ListView.itemTemplate>
+       <Label text="{{ item.place || 'Downloading...' }}" textWrap="true" class="title" />
+    </ListView.itemTemplate>
+    <!-- <ng-template let-item="item">
+      <Label [text]="item.place" class="medium-spacing"></Label>
+      <Label [text]="item.latitude" class="medium-spacing"></Label>
+    </ng-template> -->
+  </ListView>
+</GridLayout>
