@@ -21,6 +21,7 @@ export class ActivitiesComponent implements OnInit {
         try {
           var json = JSON.parse(content);
           json.results.forEach(entity => {
+            entity.gps = entity.latitude + ' x ' + entity.longitude;
             this.activityList.push(entity);
           });
         } catch (err) {

@@ -4,7 +4,11 @@
        <Label text="{{ item.place || 'Downloading...' }}" textWrap="true" class="title" />
     </ListView.itemTemplate> -->
     <ng-template let-item="item">
-      <Label [text]="item.place" class="medium-spacing"></Label>
+      <StackLayout>
+        <Image src="{{ item.image }}"></Image>
+        <Label [text]="item.place" class="medium-spacing"></Label>
+        <Label [text]="item.gps" class="medium-spacing"></Label>
+      </StackLayout>
     </ng-template>
   </ListView>
 </GridLayout>
