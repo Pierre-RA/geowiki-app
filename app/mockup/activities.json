@@ -6,7 +6,7 @@
     "date_created": "1495876061",
     "date_modified": "1495876061",
     "date_published": "1495876061",
-    "image": "https://en.wikipedia.org/wiki/Galle#/media/File:Galle_City_Places.jpg",
+    "image": "http://www.traveller.com.au/content/dam/images/g/g/w/5/i/h/image.related.articleLeadwide.620x349.ggw5bd.png/1434082753620.jpg",
     "availability": {
       "start": "1495876061",
       "end": "1500000010",
@@ -36,6 +36,49 @@
       "contact": {
         "phone": "+41799646355",
         "email": "kasun@anthillsolutions.ch"
+      }
+    }
+  }, {
+    "latitude": "43.437817",
+    "longitude": "6.778499",
+    "place": "Saint-Raphael, France",
+    "date_created": "1499015452",
+    "date_modified": "1499015452",
+    "date_published": "1499015452",
+    "image": "http://www.ville-saintraphael.fr/contenu/images/patchwork/la-mairie.jpg",
+    "availability": {
+      "start": "1499015452",
+      "end": "1500000010",
+      "time": [{
+        "start": 1000,
+        "end": 1200
+      }, {
+        "start": 1400,
+        "end": 1600
+      }, {
+        "start": 1800,
+        "end": 2000
+      }]
+    },
+    "price": {
+      "currency": "eur",
+      "amount": 24.10
+    },
+    "description": {
+      "en": "Visit the typical mediterranean house from the mayor house.",
+      "fr": "Visitez la maison typique méditerranéenne d'une mairie."
+    },
+    "type": "foot",
+    "duration": "100",
+    "owner": {
+      "name": "Pierre Repetto-Andipatin",
+      "country": "eur",
+      "languages": [
+        "en", "fr", "it"
+      ],
+      "contact": {
+        "phone": "+41799646355",
+        "email": "pierre@anthillsolutions.ch"
       }
     }
   }]
