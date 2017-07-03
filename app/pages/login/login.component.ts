@@ -52,14 +52,15 @@ export class LoginComponent implements OnInit {
 //    );
   }
   signUp() {
-    this.userService.register(this.user)
-      .subscribe(
-        () => {
-          alert("Your account was successfully created.");
-          this.toggleDisplay();
-        },
-        () => alert("Unfortunately we were unable to create your account.")
-      );
+    this.router.navigate(['/map']);
+    // this.userService.register(this.user)
+    //   .subscribe(
+    //     () => {
+    //       alert("Your account was successfully created.");
+    //       this.toggleDisplay();
+    //     },
+    //     () => alert("Unfortunately we were unable to create your account.")
+    //   );
   }
   ngOnInit() {
     this.page.actionBarHidden = true;

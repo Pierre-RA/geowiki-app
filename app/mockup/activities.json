@@ -72,7 +72,79 @@
     "duration": "100",
     "owner": {
       "name": "Pierre Repetto-Andipatin",
-      "country": "eur",
+      "country": "fr",
+      "languages": [
+        "en", "fr", "it"
+      ],
+      "contact": {
+        "phone": "+41799646355",
+        "email": "pierre@anthillsolutions.ch"
+      }
+    }
+  }, {
+    "latitude": "7.204571",
+    "longitude": "79.880869",
+    "place": "Negombo, Sri-Lanka",
+    "date_created": "1499081658",
+    "date_modified": "1499081658",
+    "date_published": "1499081658",
+    "image": "http://wikitravel.org/upload/shared//5/5c/Negombo_beachs.jpeg",
+    "availability": {
+      "start": "1499081658",
+      "end": "1500000010",
+      "time": [{
+        "start": 1000,
+        "end": 2000
+      }]
+    },
+    "price": {
+      "currency": "lkr",
+      "amount": 7000
+    },
+    "description": {
+      "en": "Enjoy a chilled place close to the airport."
+    },
+    "type": "foot",
+    "duration": "100",
+    "owner": {
+      "name": "Akila Nonis",
+      "country": "lk",
+      "languages": [
+        "en", "si"
+      ],
+      "contact": {
+        "phone": "+41799646355",
+        "email": "akila@anthillsolutions.ch"
+      }
+    }
+  }, {
+    "latitude": "46.2050282",
+    "longitude": "6.126579",
+    "place": "Geneva, Switzerland",
+    "date_created": "1499088861",
+    "date_modified": "1499088861",
+    "date_published": "1499088861",
+    "image": "http://www.site-archeologique.ch/img_site/presse-3.jpg",
+    "availability": {
+      "start": "1499088861",
+      "end": "1500000010",
+      "time": [{
+        "start": 1000,
+        "end": 1400
+      }]
+    },
+    "price": {
+      "currency": "chf",
+      "amount": 20
+    },
+    "description": {
+      "en": "Visit the most iconic religious place in Geneva."
+    },
+    "type": "foot",
+    "duration": "20",
+    "owner": {
+      "name": "Pierre Repetto-Andipatin",
+      "country": "ch",
       "languages": [
         "en", "fr", "it"
       ],

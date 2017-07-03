@@ -60,3 +60,4 @@ typings/
 # nativescript specifics
 platforms
 app/**/*.js
+app/App_Resources/Android/values/nativescript_google_maps_api.xml

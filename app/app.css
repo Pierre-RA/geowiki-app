@@ -1,4 +1,5 @@
-@import url("~/platform.css");
+/*@import url("~/platform.css");*/
+@import 'nativescript-theme-core/css/core.light.css';
 
 Page {
   background-color: white;
