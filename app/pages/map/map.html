@@ -1,9 +1,17 @@
-<GridLayout>
+<AbsoluteLayout>
   <maps:mapView
     latitude="43.437817"
     longitude="6.778499"
     zoom="14"
     (mapReady)="onMapReady($event)"
+    left="0"
+    top="0"
+    width="100%"
+    height="100%"
   >
   </maps:mapView>
-</GridLayout>
+  <SearchBar hint="Search hint" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
+             color="black" textFieldBackgroundColor="white"
+             left="20" top="20" width="100%" height="40">
+  </SearchBar>
+</AbsoluteLayout>
