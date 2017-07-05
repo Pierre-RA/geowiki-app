@@ -91,7 +91,7 @@ export class MapComponent implements OnInit {
 
           let owner = new Marker();
           owner.position = Position.positionFromLatLng(this.position.latitude, this.position.longitude);
-          owner.icon = "center";
+          owner.icon = "center_small";
           owner.title = "Your position";
           owner.snippet = this.position.latitude + "," + this.position.longitude;
           this.mapView.addMarker(owner);
