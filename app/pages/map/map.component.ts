@@ -3,11 +3,14 @@ import { registerElement } from "nativescript-angular/element-registry";
 import { MapView, Marker, Position } from 'nativescript-google-maps-sdk';
 import { Position as LocalPosition } from "../../shared/position/position";
 import { Activity } from "../../shared/activity/activity";
+import * as ImageModule from "tns-core-modules/ui/image";
+import { SearchBar } from "ui/search-bar";
 import * as Geolocation from "nativescript-geolocation";
 
 import * as fs from "tns-core-modules/file-system";
 
-registerElement('MapView', () => MapView);
+// registerElement('MapView', () => MapView);
+registerElement("MapView", () => require("nativescript-google-maps-sdk").MapView);
 
 @Component({
   moduleId: module.id,
@@ -41,6 +44,19 @@ export class MapComponent implements OnInit {
     }, { updateDistance: 1, minimumUpdateTime: 1000 });
   }
 
+  onSearchBarLoaded = (event) => {
+    if(event.object.android) {
+      event.object.dismissSoftInput();
+      event.object.android.clearFocus();
+      event.object.android.setFocusable(false);
+    }
+  }
+
+  onSubmit = (event) => {
+    let searchBar = <SearchBar>event.object;
+    console.log(searchBar.text);
+  }
+
   //Map events
   onMapReady = (event) => {
     // this.mapView.setStyle();
@@ -66,14 +82,19 @@ export class MapComponent implements OnInit {
             console.log("Is within.");
           }
 
-          var marker = new Marker();
-          console.log(this.position.latitude + 'x' + this.position.longitude);
-          console.log(temp.latitude + 'x' + temp.longitude);
+          let marker = new Marker();
           marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
           marker.title = temp.place;
           marker.snippet = temp.text;
           marker.userData = {index: 1};
           this.mapView.addMarker(marker);
+
+          let owner = new Marker();
+          owner.position = Position.positionFromLatLng(this.position.latitude, this.position.longitude);
+          owner.icon = "center";
+          owner.title = "Your position";
+          owner.snippet = this.position.latitude + "," + this.position.longitude;
+          this.mapView.addMarker(owner);
         } catch (err) {
           throw new Error('Could not parse JSON file. 1.' + err);
         }
