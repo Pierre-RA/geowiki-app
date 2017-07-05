@@ -1,6 +1,6 @@
 export class Activity {
-  latitdue: string;
-  longitude: string;
+  latitude: number;
+  longitude: number;
   date_created: string;
   date_modified: string;
   date_published: string;
@@ -11,6 +11,8 @@ export class Activity {
   type: string;
   duration: string;
   owner: Owner;
+  place: string;
+  text: string;
 }
 
 export class Availability {

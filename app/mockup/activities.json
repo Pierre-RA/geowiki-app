@@ -1,7 +1,7 @@
 {
   "results": [{
-    "latitude": "6.313",
-    "longitude": "80.1242",
+    "latitude": 6.313,
+    "longitude": 80.1242,
     "place": "Colombo, Sri-Lanka",
     "date_created": "1495876061",
     "date_modified": "1495876061",
@@ -39,8 +39,8 @@
       }
     }
   }, {
-    "latitude": "43.437817",
-    "longitude": "6.778499",
+    "latitude": 43.425769,
+    "longitude": 6.770083,
     "place": "Saint-Raphael, France",
     "date_created": "1499015452",
     "date_modified": "1499015452",
@@ -82,8 +82,8 @@
       }
     }
   }, {
-    "latitude": "7.204571",
-    "longitude": "79.880869",
+    "latitude": 7.204571,
+    "longitude": 79.880869,
     "place": "Negombo, Sri-Lanka",
     "date_created": "1499081658",
     "date_modified": "1499081658",
@@ -118,8 +118,8 @@
       }
     }
   }, {
-    "latitude": "46.2050282",
-    "longitude": "6.126579",
+    "latitude": 46.2050282,
+    "longitude": 6.126579,
     "place": "Geneva, Switzerland",
     "date_created": "1499088861",
     "date_modified": "1499088861",

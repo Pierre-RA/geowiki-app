@@ -1,7 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, NgZone, ViewChild } from '@angular/core';
 import { registerElement } from "nativescript-angular/element-registry";
 import { MapView, Marker, Position } from 'nativescript-google-maps-sdk';
-import * as geolocation from "nativescript-geolocation";
+import { Position as LocalPosition } from "../../shared/position/position";
+import { Activity } from "../../shared/activity/activity";
+import * as Geolocation from "nativescript-geolocation";
 
 import * as fs from "tns-core-modules/file-system";
 
@@ -13,14 +15,31 @@ registerElement('MapView', () => MapView);
   templateUrl: './map.html',
   styleUrls: ['./map.css']
 })
-export class MapComponent {
+export class MapComponent implements OnInit {
 
-  // @ViewChild("MapView") mapView: ElementRef;
   mapView: MapView;
-  public activityList: Array<Object> = [];
-  latitude =  -33.86;
-  longitude = 151.20;
-  zoom = 14;
+  activityList: Array<Activity>;
+  position: LocalPosition;
+  zoom: number;
+
+  constructor(private zone: NgZone) {
+    this.position = new LocalPosition(-33.86, 151.20);
+    this.zoom = 14;
+    this.activityList = [];
+  }
+
+  ngOnInit() {
+    Geolocation.watchLocation(location => {
+      if(location) {
+        this.zone.run(() => {
+          this.position.latitude = location.latitude;
+          this.position.longitude = location.longitude;
+        });
+      }
+    }, error => {
+      console.error(error);
+    }, { updateDistance: 1, minimumUpdateTime: 1000 });
+  }
 
   //Map events
   onMapReady = (event) => {
@@ -37,18 +56,19 @@ export class MapComponent {
         try {
           let json = JSON.parse(content);
           json.results.forEach(entity => {
-            entity.gps = entity.latitude + ' x ' + entity.longitude;
             entity.text = entity.description.en || 'no description';
             this.activityList.push(entity);
           });
-          let temp;
+          let temp: Activity;
           // Show Saint-Raphael
-          if (true) {
-            temp = this.activityList[1];
-            console.log(temp);
+          temp = this.activityList[1];
+          if (this.position.isWithin(new LocalPosition(temp.latitude, temp.longitude), 2)) {
+            console.log("Is within.");
           }
 
           var marker = new Marker();
+          console.log(this.position.latitude + 'x' + this.position.longitude);
+          console.log(temp.latitude + 'x' + temp.longitude);
           marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
           marker.title = temp.place;
           marker.snippet = temp.text;
