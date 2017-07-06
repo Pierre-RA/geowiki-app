@@ -102,4 +102,16 @@ export class MapComponent implements OnInit {
         throw new Error('Could not read JSON file. 2.');
       });
   };
+
+  private getDeviceLocation(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      Geolocation.enableLocationRequest().then(() => {
+        Geolocation.getCurrentLocation({timeout: 10000}).then(location => {
+          resolve(location);
+        }).catch(error => {
+          reject(error);
+        });
+      });
+    });
+  }
 }
