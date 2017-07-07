@@ -1,1 +1,21 @@
+ActionBar {
+}
 
+SearchBar {
+  color: black;
+}
+
+.stackPadded {
+  margin-top: 30;
+}
+
+Image {
+  width: 30;
+  height: 30;
+  margin-bottom: 10;
+  margin-left: 10;
+}
+
+.downStack {
+  margin-bottom: 20;
+}

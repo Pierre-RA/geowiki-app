@@ -1,8 +1,7 @@
 /*@import url("~/platform.css");*/
-@import 'nativescript-theme-core/css/core.light.css';
+@import '~/nativescript-theme-core/css/core.dark.css';
 
 Page {
-  background-color: white;
   font-size: 15;
 }
 TextField {
@@ -11,8 +10,8 @@ TextField {
 }
 
 ActionBar {
-  background-color: black;
-  color: white;
+  background-color: #303030;
+  color: #F8F8F8;
 }
 
 .small-spacing {

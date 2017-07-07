@@ -1,10 +1,14 @@
 import { Component, ElementRef, OnInit, NgZone, ViewChild } from '@angular/core';
+import { Router } from "@angular/router";
 import { registerElement } from "nativescript-angular/element-registry";
 import { MapView, Marker, Position } from 'nativescript-google-maps-sdk';
 import { Position as LocalPosition } from "../../shared/position/position";
 import { Activity } from "../../shared/activity/activity";
 import * as ImageModule from "tns-core-modules/ui/image";
 import { SearchBar } from "ui/search-bar";
+import { Button } from "ui/button";
+import { Page } from "ui/page";
+import { EventData } from "data/observable";
 import * as Geolocation from "nativescript-geolocation";
 
 import * as fs from "tns-core-modules/file-system";
@@ -25,13 +29,14 @@ export class MapComponent implements OnInit {
   position: LocalPosition;
   zoom: number;
 
-  constructor(private zone: NgZone) {
+  constructor(private router: Router, private page: Page, private zone: NgZone) {
     this.position = new LocalPosition(-33.86, 151.20);
     this.zoom = 14;
     this.activityList = [];
   }
 
   ngOnInit() {
+    this.page.actionBarHidden = true;
     Geolocation.watchLocation(location => {
       if(location) {
         this.zone.run(() => {
@@ -63,6 +68,10 @@ export class MapComponent implements OnInit {
 
     this.mapView = event.object;
     this.mapView.gMap.setMyLocationEnabled(true);
+    this.mapView.settings.myLocationButtonEnabled = false;
+
+    const style = require('./style.json');
+    this.mapView.setStyle(style);
 
     // Load mockup document
     var documents = fs.knownFolders.documents();
@@ -77,18 +86,40 @@ export class MapComponent implements OnInit {
             this.activityList.push(entity);
           });
           let temp: Activity;
+
           // Show Saint-Raphael
-          temp = this.activityList[1];
-          if (this.position.isWithin(new LocalPosition(temp.latitude, temp.longitude), 2)) {
-            console.log("Is within.");
+          let saintRaphael = new LocalPosition(43.4582431, 6.8134527);
+          if (this.position.isWithin(saintRaphael, 5)) {
+            temp = this.activityList[1];
           }
 
-          let marker = new Marker();
-          marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
-          marker.title = temp.place;
-          marker.snippet = temp.text;
-          marker.userData = {index: 1};
-          this.mapView.addMarker(marker);
+          // Show Geneva
+          let geneva = new LocalPosition(46.2050282, 6.126579);
+          if (this.position.isWithin(geneva, 5)) {
+            temp = this.activityList[3];
+          }
+
+          // Show Colombo
+          let colombo = new LocalPosition(6.9215466, 79.8212827);
+          if (this.position.isWithin(colombo, 5)) {
+            temp = this.activityList[3];
+          }
+
+          // Show Negombo
+          let negombo = new LocalPosition(7.1894442, 79.7884597);
+          if (this.position.isWithin(negombo, 5)) {
+            temp = this.activityList[3];
+          }
+
+          if (temp) {
+            console.log("marker found.");
+            let marker = new Marker();
+            marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
+            marker.title = temp.place;
+            marker.snippet = temp.text;
+            marker.userData = {index: 1};
+            this.mapView.addMarker(marker);
+          }
 
           // let owner = new Marker();
           // owner.position = Position.positionFromLatLng(this.position.latitude, this.position.longitude);
@@ -103,6 +134,15 @@ export class MapComponent implements OnInit {
         throw new Error('Could not read JSON file. 2.');
       });
   };
+
+  onTap(args: EventData) {
+    let button = <Button>args.object;
+    this.router.navigate(["/activities"]);
+  }
+
+  onMenuTap(args: EventData) {
+    alert("Not implemented yet.");
+  }
 
   private getDeviceLocation(): Promise<any> {
     return new Promise((resolve, reject) => {

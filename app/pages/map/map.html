@@ -10,8 +10,24 @@
     height="100%"
   >
   </maps:mapView>
-  <SearchBar hint="Search hint" [text]="searchPhrase" (submit)="onSubmit($event)"
-             (loaded)="onSearchBarLoaded($event)" color="black" textFieldBackgroundColor="white"
-             left="20" top="20" width="100%" height="40">
-  </SearchBar>
+  <DockLayout width="100%" height="100%" stretchLastChild="false">
+    <StackLayout dock="top" class="stackPadded" orientation="vertical">
+      <Image src="res://ic_menu_black" horizontalAlignment="left"
+             (tap)="onMenuTap($event)"
+      >
+      </Image>
+      <SearchBar  hint="Browse activities" [text]="searchPhrase"
+                 (submit)="onSubmit($event)"
+                 (loaded)="onSearchBarLoaded($event)"
+                 textFieldBackgroundColor="white"
+                 width="100%"
+      >
+      </SearchBar>
+    </StackLayout>
+    <StackLayout dock="bottom" height="60" class="downStack" orientation="horizontal">
+      <Button class="btn btn-primary btn-active" text="Walks" (tap)="onTap($event)"></Button>
+      <Button class="btn btn-secondary btn-active" text="Museums" (tap)="onTap($event)"></Button>
+      <Button class="btn btn-secondary btn-active" text="Boat" (tap)="onTap($event)"></Button>
+    </StackLayout>
+  </DockLayout>
 </AbsoluteLayout>

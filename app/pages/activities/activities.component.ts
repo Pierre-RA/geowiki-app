@@ -1,6 +1,7 @@
 import { Activity } from '../../shared/activity/activity';
 import { ActivityListService } from '../../shared/activity/activity-list.service';
 
+import { RouterExtensions } from "nativescript-angular/router";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Page } from "ui/page";
 
@@ -13,6 +14,8 @@ import * as fs from "tns-core-modules/file-system";
 })
 export class ActivitiesComponent implements OnInit {
   public activityList: Array<Object> = [];
+
+  constructor(private routerExtensions: RouterExtensions) {}
 
   ngOnInit() {
     var documents = fs.knownFolders.documents();
@@ -33,5 +36,9 @@ export class ActivitiesComponent implements OnInit {
       }, function (error) {
         throw new Error('Could not read JSON file');
       });
+  }
+
+  onBackTap() {
+    this.routerExtensions.back();
   }
 }

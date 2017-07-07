@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     // });
   }
   login() {
-    this.router.navigate(["/activities"]);
+    this.router.navigate(["/map"]);
 //    this.userService.login(this.user)
 //    .subscribe(
 //      () => this.router.navigate(["/list"]),
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
 //    );
   }
   signUp() {
-    this.router.navigate(['/map']);
+    // this.router.navigate(['/map']);
     // this.userService.register(this.user)
     //   .subscribe(
     //     () => {
