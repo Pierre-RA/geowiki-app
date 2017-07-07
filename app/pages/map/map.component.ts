@@ -62,6 +62,7 @@ export class MapComponent implements OnInit {
     // this.mapView.setStyle();
 
     this.mapView = event.object;
+    this.mapView.gMap.setMyLocationEnabled(true);
 
     // Load mockup document
     var documents = fs.knownFolders.documents();
@@ -89,12 +90,12 @@ export class MapComponent implements OnInit {
           marker.userData = {index: 1};
           this.mapView.addMarker(marker);
 
-          let owner = new Marker();
-          owner.position = Position.positionFromLatLng(this.position.latitude, this.position.longitude);
-          owner.icon = "center_small";
-          owner.title = "Your position";
-          owner.snippet = this.position.latitude + "," + this.position.longitude;
-          this.mapView.addMarker(owner);
+          // let owner = new Marker();
+          // owner.position = Position.positionFromLatLng(this.position.latitude, this.position.longitude);
+          // owner.icon = "center_small";
+          // owner.title = "Your position";
+          // owner.snippet = this.position.latitude + "," + this.position.longitude;
+          // this.mapView.addMarker(owner);
         } catch (err) {
           throw new Error('Could not parse JSON file. 1.' + err);
         }
