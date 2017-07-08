@@ -3,9 +3,13 @@ export class Position {
   longitude: number;
   zoom: number;
 
-  constructor(latitude: number, longitude: number) {
+  constructor(latitude: number, longitude: number, zoom?: number) {
     this.latitude = latitude;
     this.longitude = longitude;
+    this.zoom = 12;
+    if (zoom) {
+      this.zoom = zoom;
+    }
   }
 
   public isWithin(c: Position, radius: number): boolean;

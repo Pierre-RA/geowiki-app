@@ -7,7 +7,7 @@
        <Label text="{{ item.place || 'Downloading...' }}" textWrap="true" class="title" />
     </ListView.itemTemplate> -->
     <ng-template let-item="item">
-      <StackLayout>
+      <StackLayout (tap)="goTo(item)">
         <Image src="{{ item.image }}"></Image>
         <Label [text]="item.place"></Label>
         <Label [text]="item.text"></Label>

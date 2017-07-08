@@ -41,4 +41,8 @@ export class ActivitiesComponent implements OnInit {
   onBackTap() {
     this.routerExtensions.back();
   }
+
+  goTo(item: Activity) {
+    console.log(item.place);
+  }
 }

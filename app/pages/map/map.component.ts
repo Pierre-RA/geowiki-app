@@ -8,6 +8,7 @@ import * as ImageModule from "tns-core-modules/ui/image";
 import { SearchBar } from "ui/search-bar";
 import { Button } from "ui/button";
 import { Page } from "ui/page";
+import { Color } from "color";
 import { EventData } from "data/observable";
 import * as Geolocation from "nativescript-geolocation";
 import { TnsSideDrawer } from 'nativescript-sidedrawer';
@@ -28,11 +29,9 @@ export class MapComponent implements OnInit {
   mapView: MapView;
   activityList: Array<Activity>;
   position: LocalPosition;
-  zoom: number;
 
   constructor(private router: Router, private page: Page, private zone: NgZone) {
-    this.position = new LocalPosition(-33.86, 151.20);
-    this.zoom = 14;
+    this.position = new LocalPosition(-33.86, 151.20, 14);
     this.activityList = [];
   }
 
@@ -49,21 +48,16 @@ export class MapComponent implements OnInit {
       console.error(error);
     }, { updateDistance: 1, minimumUpdateTime: 1000 });
 
-    // image.set
+    let white = new Color("#383838");
     TnsSideDrawer.build({
       templates: [{
         title: 'Nearby',
       }, {
         title: 'Activities',
-      }, {
-        title: 'Bank Roll',
-      }, {
-        title: 'Fix Stuff',
-      }, {
-        title: 'This Is Me',
       }],
       title: 'Geo-wiki alpha',
       subtitle: 'Alpha test for devs!',
+      backgroundColor: white,
       listener: (index) => {
           switch (index) {
             case 0:
@@ -93,8 +87,6 @@ export class MapComponent implements OnInit {
 
   //Map events
   onMapReady = (event) => {
-    // this.mapView.setStyle();
-
     this.mapView = event.object;
     this.mapView.gMap.setMyLocationEnabled(true);
     this.mapView.settings.myLocationButtonEnabled = false;
