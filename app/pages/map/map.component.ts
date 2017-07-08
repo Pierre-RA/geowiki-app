@@ -70,9 +70,10 @@ export class MapComponent implements OnInit {
               this.router.navigate(["/map"]);
             break;
             case 1:
-              this.router.navigate(["/activities"]);
+              this.router.navigate(["/browser"]);
             break;
             case 2:
+              this.router.navigate(["/activities"]);
             break;
             case 3:
               this.router.navigate(["/payment"]);
