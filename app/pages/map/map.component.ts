@@ -10,6 +10,7 @@ import { Button } from "ui/button";
 import { Page } from "ui/page";
 import { EventData } from "data/observable";
 import * as Geolocation from "nativescript-geolocation";
+import { TnsSideDrawer } from 'nativescript-sidedrawer';
 
 import * as fs from "tns-core-modules/file-system";
 
@@ -47,6 +48,34 @@ export class MapComponent implements OnInit {
     }, error => {
       console.error(error);
     }, { updateDistance: 1, minimumUpdateTime: 1000 });
+
+    // image.set
+    TnsSideDrawer.build({
+      templates: [{
+        title: 'Nearby',
+      }, {
+        title: 'Activities',
+      }, {
+        title: 'Bank Roll',
+      }, {
+        title: 'Fix Stuff',
+      }, {
+        title: 'This Is Me',
+      }],
+      title: 'Geo-wiki alpha',
+      subtitle: 'Alpha test for devs!',
+      listener: (index) => {
+          switch (index) {
+            case 0:
+              this.router.navigate(["/map"]);
+            break;
+            case 1:
+              this.router.navigate(["/activities"]);
+            break;
+          }
+      },
+      context: this,
+    });
   }
 
   onSearchBarLoaded = (event) => {
@@ -141,7 +170,7 @@ export class MapComponent implements OnInit {
   }
 
   onMenuTap(args: EventData) {
-    alert("Not implemented yet.");
+    TnsSideDrawer.toggle();
   }
 
   private getDeviceLocation(): Promise<any> {
