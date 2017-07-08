@@ -53,7 +53,13 @@ export class MapComponent implements OnInit {
       templates: [{
         title: 'Nearby',
       }, {
-        title: 'Activities',
+        title: 'Browse activities',
+      }, {
+        title: 'Your activities',
+      }, {
+        title: 'Payment',
+      }, {
+        title: 'Settings',
       }],
       title: 'Geo-wiki alpha',
       subtitle: 'Alpha test for devs!',
@@ -65,6 +71,11 @@ export class MapComponent implements OnInit {
             break;
             case 1:
               this.router.navigate(["/activities"]);
+            break;
+            case 2:
+            break;
+            case 3:
+              this.router.navigate(["/payment"]);
             break;
           }
       },
