@@ -44,7 +44,14 @@ export class LoginComponent implements OnInit {
     // });
   }
   login() {
-    this.routerExtensions.navigate(["/map"], { clearHistory: true });
+    this.routerExtensions.navigate(["/map"], {
+      clearHistory: true,
+      transition: {
+        name: "fade",
+        duration: 500,
+        curve: "linear"
+      }
+    });
 //    this.userService.login(this.user)
 //    .subscribe(
 //      () => this.router.navigate(["/list"]),
@@ -52,7 +59,6 @@ export class LoginComponent implements OnInit {
 //    );
   }
   signUp() {
-    // this.router.navigate(['/map']);
     // this.userService.register(this.user)
     //   .subscribe(
     //     () => {
