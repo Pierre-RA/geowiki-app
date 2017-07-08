@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, NgZone, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
+import { RouterExtensions } from "nativescript-angular/router";
 import { registerElement } from "nativescript-angular/element-registry";
 import { MapView, Marker, Position } from 'nativescript-google-maps-sdk';
 import { Position as LocalPosition } from "../../shared/position/position";
@@ -30,7 +31,7 @@ export class MapComponent implements OnInit {
   activityList: Array<Activity>;
   position: LocalPosition;
 
-  constructor(private router: Router, private page: Page, private zone: NgZone) {
+  constructor(private routerExtensions: RouterExtensions, private page: Page, private zone: NgZone) {
     this.position = new LocalPosition(-33.86, 151.20, 14);
     this.activityList = [];
   }
@@ -67,16 +68,49 @@ export class MapComponent implements OnInit {
       listener: (index) => {
           switch (index) {
             case 0:
-              this.router.navigate(["/map"]);
+              this.routerExtensions.navigate(["/map"], {
+                transition: {
+                  name: "fade",
+                  duration: 500,
+                  curve: "linear"
+                }
+              });
             break;
             case 1:
-              this.router.navigate(["/browser"]);
+              this.routerExtensions.navigate(["/browser"], {
+                transition: {
+                  name: "fade",
+                  duration: 500,
+                  curve: "linear"
+                }
+              });
             break;
             case 2:
-              this.router.navigate(["/activities"]);
+              this.routerExtensions.navigate(["/activities"], {
+                transition: {
+                  name: "fade",
+                  duration: 500,
+                  curve: "linear"
+                }
+              });
             break;
             case 3:
-              this.router.navigate(["/payment"]);
+              this.routerExtensions.navigate(["/payment"], {
+                transition: {
+                  name: "fade",
+                  duration: 500,
+                  curve: "linear"
+                }
+              });
+            break;
+            case 4:
+              this.routerExtensions.navigate(["settings"], {
+                transition: {
+                  name: "fade",
+                  duration: 500,
+                  curve: "linear"
+                }
+              });
             break;
           }
       },
@@ -170,7 +204,13 @@ export class MapComponent implements OnInit {
 
   onTap(args: EventData) {
     let button = <Button>args.object;
-    this.router.navigate(["/activities"]);
+    this.routerExtensions.navigate(["/activities"], {
+      transition: {
+        name: "fade",
+        duration: 500,
+        curve: "linear"
+      }
+    });
   }
 
   onMenuTap(args: EventData) {
