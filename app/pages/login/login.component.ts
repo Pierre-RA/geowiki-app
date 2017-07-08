@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { User } from '../../shared/user/user';
 import { UserService } from "../../shared/user/user.service";
-import { Router } from "@angular/router";
+import { RouterExtensions } from "nativescript-angular/router";
 import { Page } from "ui/page";
 import { Color } from "color";
 import { View } from "ui/core/view";
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   isLoggingIn = true;
   @ViewChild("container") container: ElementRef;
 
-  constructor(private router: Router, private userService: UserService, private page: Page) {
+  constructor(private routerExtensions: RouterExtensions, private userService: UserService, private page: Page) {
     this.user = new User();
     this.user.email = "pierre.repetto@gmail.com";
     this.user.password = "bull";
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     // });
   }
   login() {
-    this.router.navigate(["/map"]);
+    this.routerExtensions.navigate(["/map"], { clearHistory: true });
 //    this.userService.login(this.user)
 //    .subscribe(
 //      () => this.router.navigate(["/list"]),
