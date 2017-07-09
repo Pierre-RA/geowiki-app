@@ -12,9 +12,14 @@ export class Activity {
   duration: string;
   owner: Owner;
   place: string;
+  title: Description;
 
   static getText(activity: Activity): string {
     return activity.description.en || "no description";
+  }
+
+  static getI18n(activity: Activity, key: string, lang: string): string {
+    return activity[key][lang];
   }
 }
 
@@ -34,7 +39,7 @@ export class Price {
   amount: number;
 
   static toString(price: Price): string {
-    return price.amount + " " + price.currency;
+    return price.amount + " " + price.currency.toUpperCase();
   }
 }
 

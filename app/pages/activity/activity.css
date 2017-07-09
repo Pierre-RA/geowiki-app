@@ -1,0 +1,21 @@
+.price {
+  font-size: 32;
+  font-weight: bold;
+  text-align: center;
+  padding-right: 10;
+}
+
+.title {
+  font-size: 24;
+  text-align: center;
+}
+
+TextView {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+Button {
+  margin-left: 30;
+  margin-right: 30;
+}

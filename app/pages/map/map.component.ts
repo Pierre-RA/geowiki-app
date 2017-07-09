@@ -165,7 +165,7 @@ export class MapComponent implements OnInit {
     let marker = new Marker();
     marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
     marker.title = temp.place;
-    marker.snippet = Activity.getText(temp);
+    marker.snippet = Activity.getI18n(temp, 'title', 'en');
     marker.userData = {index: index};
     this.mapView.addMarker(marker);
   }

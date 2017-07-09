@@ -1,14 +1,21 @@
 <ActionBar title="Activities">
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onBackTap($event)"></NavigationButton>
 </ActionBar>
-<StackLayout>
-  <StackLayout>
+<DockLayout stretchLastChild="false">
+  <StackLayout dock="top">
     <Image src="{{ item.image }}"></Image>
+    <Label class="title" [text]="title"></Label>
     <Label [text]="item.place"></Label>
-    <Label [text]="text"></Label>
-    <Label [text]="price"></Label>
+    <TextView [text]="text" [editable]="false"></TextView>
     <Label [text]="item.owner.name"></Label>
     <Label [text]="item.type"></Label>
     <Label [text]="item.duration"></Label>
   </StackLayout>
-</StackLayout>
+  <StackLayout dock="bottom">
+    <Label [text]="price" class="price"></Label>
+    <StackLayout orientation="horizontal" horizontalAlignment="center">
+      <Button text="Contact" class="btn btn-default" horizontalAlignment="center"></Button>
+      <Button text="Purchase" class="btn btn-primary btn-active" horizontalAlignment="center"></Button>
+    </StackLayout>
+  </StackLayout>
+</DockLayout>

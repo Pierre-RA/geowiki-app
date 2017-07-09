@@ -60,6 +60,10 @@
         "end": 2000
       }]
     },
+    "title": {
+      "en": "Visit the Annex Mayor House",
+      "fr": "Visitez la Mairie Annexe"
+    },
     "price": {
       "currency": "eur",
       "amount": 24.10

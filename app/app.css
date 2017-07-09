@@ -23,3 +23,7 @@ ActionBar {
 .fa {
   font-family: FontAwesome, fontawesome-webfont;
 }
+
+.btn-default {
+  background-color: rgb(215,215,215);
+}

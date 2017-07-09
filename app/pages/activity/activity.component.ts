@@ -17,6 +17,7 @@ export class ActivityComponent implements OnInit {
   item: Activity;
   text: string;
   price: string;
+  title: string;
 
   constructor(private routerExtensions: RouterExtensions, private route: ActivatedRoute) {
     this.item = new Activity();
@@ -24,8 +25,9 @@ export class ActivityComponent implements OnInit {
       this.item = JSON.parse(params["item"]);
       let duration = moment.duration(Number(this.item.duration), "m").humanize();
       this.item.duration = duration;
-      this.text = Activity.getText(this.item);
+      this.text = Activity.getI18n(this.item, 'description', 'en');
       this.price = Price.toString(this.item.price);
+      this.title = Activity.getI18n(this.item, 'title', 'en');
     });
   }
 
