@@ -148,41 +148,10 @@ export class MapComponent implements OnInit {
           this.activityList.push(entity);
         });
         let temp: Activity;
-        let index;
-
-        // Show Saint-Raphael
-        let saintRaphael = new LocalPosition(43.4582431, 6.8134527);
-        if (this.position.isWithin(saintRaphael, 5)) {
-          index = 1;
-        }
-
-        // Show Geneva
-        let geneva = new LocalPosition(46.2050282, 6.126579);
-        if (this.position.isWithin(geneva, 5)) {
-          index = 3;
-        }
-
-        // Show Colombo
-        let colombo = new LocalPosition(6.9215466, 79.8212827);
-        if (this.position.isWithin(colombo, 5)) {
-          index = 0;
-        }
-
-        // Show Negombo
-        let negombo = new LocalPosition(7.1894442, 79.7884597);
-        if (this.position.isWithin(negombo, 5)) {
-          index = 2;
-        }
+        let index = this.getMockupMarker();
 
         if (index) {
-          temp = this.activityList[index];
-          console.log("marker found.");
-          let marker = new Marker();
-          marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
-          marker.title = temp.place;
-          marker.snippet = Activity.getText(temp);
-          marker.userData = {index: index};
-          this.mapView.addMarker(marker);
+          this.addMockupMarkerToMap(index);
         }
       } catch (err) {
         throw new Error('Could not parse JSON file: ' + err);
@@ -190,10 +159,51 @@ export class MapComponent implements OnInit {
     });
   };
 
+  private addMockupMarkerToMap(index: number) {
+    let temp: Activity = this.activityList[index];
+    console.log("marker found.");
+    let marker = new Marker();
+    marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
+    marker.title = temp.place;
+    marker.snippet = Activity.getText(temp);
+    marker.userData = {index: index};
+    this.mapView.addMarker(marker);
+  }
+
   private readMockup() {
     var documents = fs.knownFolders.documents();
     var myFile = documents.getFile("app/mockup/activities.json");
     return myFile.readText();
+  }
+
+  private getMockupMarker() {
+    let index;
+
+    // Show Saint-Raphael
+    let saintRaphael = new LocalPosition(43.4582431, 6.8134527);
+    if (this.position.isWithin(saintRaphael, 5)) {
+      index = 1;
+    }
+
+    // Show Geneva
+    let geneva = new LocalPosition(46.2050282, 6.126579);
+    if (this.position.isWithin(geneva, 5)) {
+      index = 3;
+    }
+
+    // Show Colombo
+    let colombo = new LocalPosition(6.9215466, 79.8212827);
+    if (this.position.isWithin(colombo, 5)) {
+      index = 0;
+    }
+
+    // Show Negombo
+    let negombo = new LocalPosition(7.1894442, 79.7884597);
+    if (this.position.isWithin(negombo, 5)) {
+      index = 2;
+    }
+
+    return index;
   }
 
   onTap(args: EventData) {
