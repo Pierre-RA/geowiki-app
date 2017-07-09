@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 import { ActivatedRoute } from "@angular/router";
 
-import { Activity } from "../../shared/activity/activity";
+import { Activity, Price } from "../../shared/activity/activity";
 
 import moment = require("moment");
 
@@ -15,6 +15,8 @@ import moment = require("moment");
 export class ActivityComponent implements OnInit {
 
   item: Activity;
+  text: string;
+  price: string;
 
   constructor(private routerExtensions: RouterExtensions, private route: ActivatedRoute) {
     this.item = new Activity();
@@ -22,6 +24,8 @@ export class ActivityComponent implements OnInit {
       this.item = JSON.parse(params["item"]);
       let duration = moment.duration(Number(this.item.duration), "m").humanize();
       this.item.duration = duration;
+      this.text = Activity.getText(this.item);
+      this.price = Price.toString(this.item.price);
     });
   }
 

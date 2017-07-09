@@ -5,9 +5,9 @@
   <StackLayout>
     <Image src="{{ item.image }}"></Image>
     <Label [text]="item.place"></Label>
-    <Label [text]="item.text"></Label>
-    <Label [text]="item.price"></Label>
-    <Label [text]="item.owner"></Label>
+    <Label [text]="text"></Label>
+    <Label [text]="price"></Label>
+    <Label [text]="item.owner.name"></Label>
     <Label [text]="item.type"></Label>
     <Label [text]="item.duration"></Label>
   </StackLayout>

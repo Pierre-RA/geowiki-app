@@ -12,7 +12,10 @@ export class Activity {
   duration: string;
   owner: Owner;
   place: string;
-  text: string;
+
+  static getText(activity: Activity): string {
+    return activity.description.en || "no description";
+  }
 }
 
 export class Availability {
@@ -29,6 +32,10 @@ export class Period {
 export class Price {
   currency: string;
   amount: number;
+
+  static toString(price: Price): string {
+    return price.amount + " " + price.currency;
+  }
 }
 
 export class Description {

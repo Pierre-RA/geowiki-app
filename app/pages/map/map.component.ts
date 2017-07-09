@@ -37,6 +37,7 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("Page - map");
     this.page.actionBarHidden = true;
     Geolocation.watchLocation(location => {
       if(location) {
@@ -149,51 +150,45 @@ export class MapComponent implements OnInit {
         try {
           let json = JSON.parse(content);
           json.results.forEach(entity => {
-            entity.text = entity.description.en || 'no description';
             this.activityList.push(entity);
           });
           let temp: Activity;
+          let index;
 
           // Show Saint-Raphael
           let saintRaphael = new LocalPosition(43.4582431, 6.8134527);
           if (this.position.isWithin(saintRaphael, 5)) {
-            temp = this.activityList[1];
+            index = 1;
           }
 
           // Show Geneva
           let geneva = new LocalPosition(46.2050282, 6.126579);
           if (this.position.isWithin(geneva, 5)) {
-            temp = this.activityList[3];
+            index = 3;
           }
 
           // Show Colombo
           let colombo = new LocalPosition(6.9215466, 79.8212827);
           if (this.position.isWithin(colombo, 5)) {
-            temp = this.activityList[3];
+            index = 0;
           }
 
           // Show Negombo
           let negombo = new LocalPosition(7.1894442, 79.7884597);
           if (this.position.isWithin(negombo, 5)) {
-            temp = this.activityList[3];
+            index = 2;
           }
 
-          if (temp) {
+          if (index) {
+            temp = this.activityList[index];
             console.log("marker found.");
             let marker = new Marker();
             marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
             marker.title = temp.place;
-            marker.snippet = temp.text;
-            marker.userData = {index: 1};
+            marker.snippet = Activity.getText(temp);
+            marker.userData = {index: index};
             this.mapView.addMarker(marker);
           }
-
-          // let owner = new Marker();
-          // owner.position = Position.positionFromLatLng(this.position.latitude, this.position.longitude);
-          // owner.icon = "center_small";
-          // owner.title = "Your position";
-          // owner.snippet = this.position.latitude + "," + this.position.longitude;
-          // this.mapView.addMarker(owner);
         } catch (err) {
           throw new Error('Could not parse JSON file. 1.' + err);
         }
@@ -215,6 +210,20 @@ export class MapComponent implements OnInit {
 
   onMenuTap(args: EventData) {
     TnsSideDrawer.toggle();
+  }
+
+  onMarkerInfoWindowEvent(args) {
+    let index = args.marker.userData.index;
+    this.routerExtensions.navigate(["/activity"], {
+      transition: {
+        name: "fade",
+        duration: 500,
+        curve: "linear"
+      },
+      queryParams: {
+        item: JSON.stringify(this.activityList[index])
+      }
+    });
   }
 
   private getDeviceLocation(): Promise<any> {

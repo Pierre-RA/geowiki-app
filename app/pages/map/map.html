@@ -4,6 +4,7 @@
     longitude="{{position.longitude}}"
     zoom="{{position.zoom}}"
     (mapReady)="onMapReady($event)"
+    (markerInfoWindowTapped)="onMarkerInfoWindowEvent($event)"
     left="0"
     top="0"
     width="100%"

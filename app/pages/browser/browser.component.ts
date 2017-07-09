@@ -30,8 +30,7 @@ export class BrowserComponent implements OnInit {
         try {
           let json = JSON.parse(content);
           json.results.forEach(entity => {
-            entity.gps = entity.latitude + ' x ' + entity.longitude;
-            entity.text = entity.description.en || 'no description';
+            entity.text = Activity.getText(entity);
             this.activityList.push(entity);
           });
         } catch (err) {
