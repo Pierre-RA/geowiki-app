@@ -4,6 +4,8 @@ import { ActivatedRoute } from "@angular/router";
 
 import { Activity } from "../../shared/activity/activity";
 
+import moment = require("moment");
+
 @Component({
   moduleId: module.id,
   templateUrl: './activity.html',
@@ -18,6 +20,8 @@ export class ActivityComponent implements OnInit {
     this.item = new Activity();
     this.route.queryParams.subscribe(params => {
       this.item = JSON.parse(params["item"]);
+      let duration = moment.duration(Number(this.item.duration), "m").humanize();
+      this.item.duration = duration;
     });
   }
 
