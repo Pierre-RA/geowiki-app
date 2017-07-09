@@ -1,0 +1,10 @@
+<ActionBar title="Activities">
+  <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onBackTap($event)"></NavigationButton>
+</ActionBar>
+<StackLayout>
+  <StackLayout>
+    <Image src="{{ item.image }}"></Image>
+    <Label [text]="item.place"></Label>
+    <Label [text]="item.text"></Label>
+  </StackLayout>
+</StackLayout>

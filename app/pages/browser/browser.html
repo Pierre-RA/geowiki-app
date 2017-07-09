@@ -2,5 +2,16 @@
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onBackTap($event)"></NavigationButton>
 </ActionBar>
 <GridLayout>
-  <Label>No activity yet</Label>
+  <ListView [items]="activityList" class="small-spacing">
+    <!-- <ListView.itemTemplate>
+       <Label text="{{ item.place || 'Downloading...' }}" textWrap="true" class="title" />
+    </ListView.itemTemplate> -->
+    <ng-template let-item="item">
+      <StackLayout (tap)="goTo(item)">
+        <Image src="{{ item.image }}"></Image>
+        <Label [text]="item.place"></Label>
+        <Label [text]="item.text"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
 </GridLayout>

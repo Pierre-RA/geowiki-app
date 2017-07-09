@@ -3,7 +3,6 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
   moduleId: module.id,
-  selector: 'settings',
   templateUrl: './settings.html',
   styleUrls: ['./settings.css']
 })

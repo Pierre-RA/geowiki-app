@@ -3,7 +3,6 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
   moduleId: module.id,
-  selector: 'payment',
   templateUrl: './payment.html',
   styleUrls: ['./payment.css']
 })
