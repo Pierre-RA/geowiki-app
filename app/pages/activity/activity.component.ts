@@ -27,7 +27,12 @@ export class ActivityComponent implements OnInit {
       this.item.duration = duration;
       this.text = Activity.getI18n(this.item, 'description', 'en');
       this.price = Price.toString(this.item.price);
-      this.title = Activity.getI18n(this.item, 'title', 'en');
+      this.title = "Title";
+      try {
+        this.title = Activity.getI18n(this.item, 'title', 'en');
+      } catch (err) {
+        console.error("activity: no title provided");
+      }
     });
   }
 

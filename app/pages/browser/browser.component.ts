@@ -30,7 +30,7 @@ export class BrowserComponent implements OnInit {
         try {
           let json = JSON.parse(content);
           json.results.forEach(entity => {
-            entity.text = Activity.getText(entity);
+            entity.text = Activity.getI18n(entity, "description", "en");
             this.activityList.push(entity);
           });
         } catch (err) {
