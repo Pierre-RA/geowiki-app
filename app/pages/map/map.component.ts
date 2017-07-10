@@ -13,6 +13,7 @@ import { Color } from "color";
 import { EventData } from "data/observable";
 import * as Geolocation from "nativescript-geolocation";
 import { TnsSideDrawer } from 'nativescript-sidedrawer';
+import * as ApplicationSettings from "application-settings";
 
 import * as fs from "tns-core-modules/file-system";
 
@@ -32,7 +33,10 @@ export class MapComponent implements OnInit {
   position: LocalPosition;
 
   constructor(private routerExtensions: RouterExtensions, private page: Page, private zone: NgZone) {
-    this.position = new LocalPosition(33.86, 51.20, 4);
+    this.position = new LocalPosition(
+      ApplicationSettings.getNumber("latitude", 33.86),
+      ApplicationSettings.getNumber("longitude", 51.2),
+      ApplicationSettings.getNumber("zoom", 4));
     this.activityList = [];
   }
 
@@ -125,6 +129,9 @@ export class MapComponent implements OnInit {
   onMapReady = (event) => {
     this.getDeviceLocation().then(location => {
       if (location) {
+        ApplicationSettings.setNumber("latitude", location.latitude);
+        ApplicationSettings.setNumber("longitude", location.longitude);
+        ApplicationSettings.setNumber("zoom", 14);
         this.zone.run(() => {
           this.position.latitude = location.latitude;
           this.position.longitude = location.longitude;
