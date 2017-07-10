@@ -1,8 +1,9 @@
 {
   "description": "NativeScript Application",
-  "license": "SEE LICENSE IN <your-license-filename>",
+  "license": "MIT",
   "readme": "NativeScript Application",
   "repository": "<fill-your-repository-here>",
+  "version": "0.0.1",
   "nativescript": {
     "id": "org.nativescript.geowiki",
     "tns-android": {

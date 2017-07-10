@@ -14,12 +14,26 @@ export class Activity {
   place: string;
   title: Description;
 
+  // To be removed for v0.0.2
+  @Deprecated
   static getText(activity: Activity): string {
     return activity.description.en || "no description";
   }
 
   static getI18n(activity: Activity, key: string, lang: string): string {
-    return activity[key][lang];
+    if (!activity) {
+      throw Error("activity not found.");
+    }
+    if (!activity[key]) {
+      throw Error("key " + key + " for activity was not found.");
+    }
+    if (activity[key][lang]) {
+      return activity[key][lang];
+    }
+    if (activity[key]["en"]) {
+      return activity[key]["en"];
+    }
+    throw Error("Neither " + lang + " nor default en have beend found for activity.");
   }
 }
 
