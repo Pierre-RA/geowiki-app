@@ -5,6 +5,7 @@ import { PaymentComponent } from "./pages/payment/payment.component";
 import { BrowserComponent } from "./pages/browser/browser.component";
 import { SettingsComponent } from "./pages/details/settings.component";
 import { ActivityComponent } from "./pages/activity/activity.component";
+import { ProfileComponent } from "./pages/profile/profile.component";
 
 export const routes = [
   { path: "", component: MapComponent },
@@ -13,7 +14,8 @@ export const routes = [
   { path: "payment", component: PaymentComponent },
   { path: "browser", component: BrowserComponent },
   { path: "settings", component: SettingsComponent },
-  { path: "activity", component: ActivityComponent }
+  { path: "activity", component: ActivityComponent },
+  { path: "profile", component: ProfileComponent }
 ];
 
 export const navigatableComponents = [
@@ -23,5 +25,6 @@ export const navigatableComponents = [
   PaymentComponent,
   BrowserComponent,
   SettingsComponent,
-  ActivityComponent
+  ActivityComponent,
+  ProfileComponent
 ];

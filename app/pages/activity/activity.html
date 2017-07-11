@@ -10,7 +10,7 @@
     <Label [text]="item.owner.name"></Label>
     <Label [text]="item.type"></Label>
     <Label [text]="item.duration"></Label>
-    <Image src="{{ item.owner.avatar }}"></Image>
+    <Image class="rounded" src="{{ item.owner.avatar }}"></Image>
   </StackLayout>
   <StackLayout dock="bottom">
     <Label [text]="price" class="price"></Label>
