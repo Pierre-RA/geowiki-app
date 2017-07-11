@@ -1,17 +1,23 @@
 <ActionBar title="Activities">
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onBackTap($event)"></NavigationButton>
 </ActionBar>
-<GridLayout>
-  <ListView [items]="activityList" class="small-spacing">
-    <!-- <ListView.itemTemplate>
-       <Label text="{{ item.place || 'Downloading...' }}" textWrap="true" class="title" />
-    </ListView.itemTemplate> -->
-    <ng-template let-item="item">
-      <StackLayout (tap)="goTo(item)">
-        <Image src="{{ item.image }}"></Image>
-        <Label [text]="item.place"></Label>
-        <Label [text]="item.text()"></Label>
-      </StackLayout>
-    </ng-template>
-  </ListView>
-</GridLayout>
+<TabView selectedIndex="0"  (selectedIndexChange)="onIndexChanged($event)" sdkExampleTitle sdkToggleNavButton>
+  <StackLayout *tabItem="{title: 'Past'}">
+    <ScrollView height="100%">
+      <ListView [items]="activityList" class="small-spacing">
+        <ng-template let-item="item">
+          <StackLayout (tap)="goTo(item)">
+            <Image src="{{ item.image }}"></Image>
+            <Label [text]="item.place"></Label>
+            <Label [text]="text"></Label>
+          </StackLayout>
+        </ng-template>
+      </ListView>
+    </ScrollView>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Upcoming'}">
+    <ScrollView>
+      <Label text="No upcoming activities" textWrap="true" class="m-15"></Label>
+    </ScrollView>
+  </StackLayout>
+</TabView>

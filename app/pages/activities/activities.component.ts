@@ -3,7 +3,7 @@ import { ActivityListService } from '../../shared/activity/activity-list.service
 
 import { RouterExtensions } from "nativescript-angular/router";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { Page } from "ui/page";
+// import { Page } from "ui/page";
 
 import * as fs from "tns-core-modules/file-system";
 
@@ -19,15 +19,13 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit() {
     var documents = fs.knownFolders.documents();
-    var myFile = documents.getFile("app/mockup/activities.json");
+    var myFile = documents.getFile("app/mockup/user.json");
     let activityList = [];
     return myFile.readText()
       .then(content => {
         try {
           let json = JSON.parse(content);
-          json.results.forEach(entity => {
-            entity.gps = entity.latitude + ' x ' + entity.longitude;
-            entity.text = entity.description.en || 'no description';
+          json.activities.forEach(entity => {
             this.activityList.push(entity);
           });
         } catch (err) {
@@ -36,6 +34,10 @@ export class ActivitiesComponent implements OnInit {
       }, function (error) {
         throw new Error('Could not read JSON file');
       });
+  }
+
+  onIndexChanged(event) {
+    console.log("tab changed.");
   }
 
   onBackTap() {

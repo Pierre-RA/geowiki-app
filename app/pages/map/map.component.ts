@@ -43,73 +43,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     console.log("Page - map");
     this.page.actionBarHidden = true;
-    let white = new Color("#383838");
-    TnsSideDrawer.build({
-      templates: [{
-        title: 'Nearby',
-      }, {
-        title: 'Browse activities',
-      }, {
-        title: 'Your activities',
-      }, {
-        title: 'Payment',
-      }, {
-        title: 'Settings',
-      }],
-      title: 'Geo-wiki alpha',
-      subtitle: 'Alpha test for devs!',
-      backgroundColor: white,
-      listener: (index) => {
-          switch (index) {
-            case 0:
-              this.routerExtensions.navigate(["/"], {
-                transition: {
-                  name: "fade",
-                  duration: 500,
-                  curve: "linear"
-                }
-              });
-            break;
-            case 1:
-              this.routerExtensions.navigate(["/browser"], {
-                transition: {
-                  name: "fade",
-                  duration: 500,
-                  curve: "linear"
-                }
-              });
-            break;
-            case 2:
-              this.routerExtensions.navigate(["/activities"], {
-                transition: {
-                  name: "fade",
-                  duration: 500,
-                  curve: "linear"
-                }
-              });
-            break;
-            case 3:
-              this.routerExtensions.navigate(["/payment"], {
-                transition: {
-                  name: "fade",
-                  duration: 500,
-                  curve: "linear"
-                }
-              });
-            break;
-            case 4:
-              this.routerExtensions.navigate(["settings"], {
-                transition: {
-                  name: "fade",
-                  duration: 500,
-                  curve: "linear"
-                }
-              });
-            break;
-          }
-      },
-      context: this,
-    });
+    TnsSideDrawer.build(this.getSideDrawer());
   }
 
   onSearchBarLoaded = (event) => {
@@ -240,6 +174,87 @@ export class MapComponent implements OnInit {
         item: JSON.stringify(this.activityList[index])
       }
     });
+  }
+
+  private getSideDrawer() {
+    let white = new Color("#383838");
+    return {
+      templates: [{
+        title: 'Profile',
+      },{
+        title: 'Nearby',
+      }, {
+        title: 'Browse activities',
+      }, {
+        title: 'Your activities',
+      }, {
+        title: 'Payment',
+      }, {
+        title: 'Settings',
+      }],
+      title: 'Geo-wiki alpha',
+      subtitle: 'Alpha test for devs!',
+      backgroundColor: white,
+      listener: (index) => {
+        switch (index) {
+          case 0:
+            this.routerExtensions.navigate(["/profile"], {
+              transition: {
+                name: "fade",
+                duration: 500,
+                curve: "linear"
+              }
+            });
+          break;
+          case 1:
+            this.routerExtensions.navigate(["/"], {
+              transition: {
+                name: "fade",
+                duration: 500,
+                curve: "linear"
+              }
+            });
+          break;
+          case 2:
+            this.routerExtensions.navigate(["/browser"], {
+              transition: {
+                name: "fade",
+                duration: 500,
+                curve: "linear"
+              }
+            });
+          break;
+          case 3:
+            this.routerExtensions.navigate(["/activities"], {
+              transition: {
+                name: "fade",
+                duration: 500,
+                curve: "linear"
+              }
+            });
+          break;
+          case 4:
+            this.routerExtensions.navigate(["/payment"], {
+              transition: {
+                name: "fade",
+                duration: 500,
+                curve: "linear"
+              }
+            });
+          break;
+          case 5:
+            this.routerExtensions.navigate(["settings"], {
+              transition: {
+                name: "fade",
+                duration: 500,
+                curve: "linear"
+              }
+            });
+          break;
+        }
+      },
+      context: this,
+    }
   }
 
   private getDeviceLocation(): Promise<any> {
