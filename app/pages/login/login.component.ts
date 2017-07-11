@@ -23,10 +23,6 @@ export class LoginComponent implements OnInit {
     this.user = new User();
     this.user.email = "pierre.repetto@gmail.com";
     this.user.password = "bull";
-    if (ApplicationSettings.getBoolean("logged")) {
-      console.log("login: user has been already logged-in.");
-      this.login();
-    }
   }
 
   submit() {
@@ -50,7 +46,7 @@ export class LoginComponent implements OnInit {
   }
   login() {
     ApplicationSettings.setBoolean("logged", true);
-    this.routerExtensions.navigate(["/map"], {
+    this.routerExtensions.navigate(["/"], {
       clearHistory: true,
       transition: {
         name: "fade",
@@ -77,6 +73,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.page.actionBarHidden = true;
     this.page.backgroundImage = "res://electric";
-    this.page.css = 'page {background-size: cover}';
+    this.page.css = "page {background-size: cover}";
   }
 }

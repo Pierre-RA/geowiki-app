@@ -1,0 +1,44 @@
+{
+  "name": "Pierre Repetto-Andipatin",
+  "email": "pierre.repetto@gmail.com",
+  "phone": "+41799646355",
+  "country": "France",
+  "languages": [
+    "en", "fr", "it"
+  ],
+  "dob": 442713600,
+  "i18n": "en",
+  "currency": "EUR",
+  "avatar": "https://s.gravatar.com/avatar/e7aec943b0298ba13e3844e094504161?s=80",
+  "activities": [{
+    "latitude": 7.204571,
+    "longitude": 79.880869,
+    "place": "Negombo, Sri-Lanka",
+    "image": "http://wikitravel.org/upload/shared//5/5c/Negombo_beachs.jpeg",
+    "description": {
+      "en": "Enjoy a chilled place close to the airport."
+    },
+    "type": "foot",
+    "duration": "100",
+    "owner": {
+      "name": "Akila Nonis",
+      "country": "lk",
+      "languages": [
+        "en", "si"
+      ],
+      "price": {
+        "currency": "lkr",
+        "amount": 7000
+      },
+      "contact": {
+        "phone": "+41799646355",
+        "email": "akila@anthillsolutions.ch"
+      }
+    },
+    "date": 1499580000,
+    "rate": 5,
+    "comment": "A truely good friend helps you visiting the city as safely as possible.",
+    "featured": []
+  }],
+  "isOwner": true
+}

@@ -7,9 +7,9 @@ import { SettingsComponent } from "./pages/details/settings.component";
 import { ActivityComponent } from "./pages/activity/activity.component";
 
 export const routes = [
-  { path: "", component: LoginComponent },
+  { path: "", component: MapComponent },
   { path: "activities", component: ActivitiesComponent },
-  { path: "map", component: MapComponent },
+  { path: "login", component: LoginComponent },
   { path: "payment", component: PaymentComponent },
   { path: "browser", component: BrowserComponent },
   { path: "settings", component: SettingsComponent },

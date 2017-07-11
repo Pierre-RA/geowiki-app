@@ -67,6 +67,7 @@ export class Owner {
   name: string;
   country: string;
   languages: string[];
+  avatar: string;
   contact: Contact;
 }
 

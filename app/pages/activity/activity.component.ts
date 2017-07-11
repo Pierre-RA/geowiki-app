@@ -28,6 +28,7 @@ export class ActivityComponent implements OnInit {
       this.text = Activity.getI18n(this.item, 'description', 'en');
       this.price = Price.toString(this.item.price);
       this.title = "Title";
+      console.log(this.item.owner.avatar);
       try {
         this.title = Activity.getI18n(this.item, 'title', 'en');
       } catch (err) {

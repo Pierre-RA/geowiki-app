@@ -1,6 +1,10 @@
 <ActionBar title="Settings">
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onBackTap($event)"></NavigationButton>
 </ActionBar>
-<GridLayout>
-  <Label>No settings yet</Label>
-</GridLayout>
+<StackLayout>
+  <Label class="title" text="developers options"></Label>
+  <GridLayout rows="auto auto" columns="* *" class="m-5">
+    <Label class="h3 m-15" [text]="loggedState" textWrap="true" row="0" col="0"></Label>
+    <Switch class="m-15" [checked]="checkedState" (checkedChange)="onFirstChecked($event)" row="0" col="1" #loggedSwitch></Switch>
+  </GridLayout>
+</StackLayout>

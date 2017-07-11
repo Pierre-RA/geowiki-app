@@ -62,7 +62,7 @@ export class MapComponent implements OnInit {
       listener: (index) => {
           switch (index) {
             case 0:
-              this.routerExtensions.navigate(["/map"], {
+              this.routerExtensions.navigate(["/"], {
                 transition: {
                   name: "fade",
                   duration: 500,
