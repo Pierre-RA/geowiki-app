@@ -19,9 +19,3 @@ Button {
   margin-left: 30;
   margin-right: 30;
 }
-
-.rounded {
-  border-radius: 30;
-  height: 50;
-  width: 50;
-}

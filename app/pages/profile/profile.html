@@ -1,6 +1,10 @@
-<ActionBar title="Payment">
+<ActionBar title="Profile">
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onBackTap($event)"></NavigationButton>
 </ActionBar>
-<GridLayout>
-  <Label text="No payment yet"></Label>
+<GridLayout columns="*, 4*, auto" rows="auto, *">
+  <Image col="0" [src]="user.avatar" class="rounded"></Image>
+  <StackLayout col="1">
+    <Label [text]="user.name | trimName" class="title"></Label>
+    <Label [text]="user.country"></Label>
+  </StackLayout>
 </GridLayout>

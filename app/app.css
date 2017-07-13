@@ -27,3 +27,9 @@ ActionBar {
 .btn-default {
   background-color: rgb(215,215,215);
 }
+
+.rounded {
+  border-radius: 30;
+  height: 50;
+  width: 50;
+}

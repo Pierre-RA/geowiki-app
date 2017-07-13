@@ -4,7 +4,7 @@ import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 
-import { Activity, Availability, Period, Price, Description, Owner, Contact }
+import { Activity, Availability, Period, Price, Description }
   from "./activity";
 import { Config } from "../config";
 
@@ -22,14 +22,7 @@ export class ActivityListService {
     .map(data => {
       let activityList = [];
       data.results.forEach((activity) => {
-        activityList.push(new activity(
-          activity.latitude,
-          activity.longitude,
-          activity.date_created,
-          activity.date_modified,
-          activity.date_published,
-          activity.image,
-        ));
+        activityList.push(new Activity().deserialize(activity));
       });
       return activityList;
     })

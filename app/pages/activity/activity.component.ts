@@ -18,15 +18,15 @@ export class ActivityComponent implements OnInit {
   text: string;
   price: string;
   title: string;
+  duration: string;
 
   constructor(private routerExtensions: RouterExtensions, private route: ActivatedRoute) {
     this.item = new Activity();
     this.route.queryParams.subscribe(params => {
-      this.item = JSON.parse(params["item"]);
-      let duration = moment.duration(Number(this.item.duration), "m").humanize();
-      this.item.duration = duration;
+      this.item = new Activity().deserialize(JSON.parse(params["item"]));
+      this.duration = moment.duration(this.item.duration, "m").humanize();
       this.text = Activity.getI18n(this.item, 'description', 'en');
-      this.price = Price.toString(this.item.price);
+      this.price = this.item.price.toString();
       this.title = "Title";
       console.log(this.item.owner.avatar);
       try {

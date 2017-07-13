@@ -9,6 +9,8 @@ declare var GMSServices: any;
 import { AppComponent } from "./app.component";
 import { routes, navigatableComponents } from "./app.routing";
 
+import { TrimNamePipe } from "./pipes/trim.pipe";
+
 @NgModule({
   imports: [
     NativeScriptModule,
@@ -19,6 +21,7 @@ import { routes, navigatableComponents } from "./app.routing";
   ],
   declarations: [
     AppComponent,
+    TrimNamePipe,
     ...navigatableComponents
   ],
   bootstrap: [AppComponent]

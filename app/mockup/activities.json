@@ -3,13 +3,13 @@
     "latitude": 6.313,
     "longitude": 80.1242,
     "place": "Colombo, Sri-Lanka",
-    "date_created": "1495876061",
-    "date_modified": "1495876061",
-    "date_published": "1495876061",
+    "date_created": 1495876061,
+    "date_modified": 1495876061,
+    "date_published": 1495876061,
     "image": "http://www.traveller.com.au/content/dam/images/g/g/w/5/i/h/image.related.articleLeadwide.620x349.ggw5bd.png/1434082753620.jpg",
     "availability": {
-      "start": "1495876061",
-      "end": "1500000010",
+      "start": 1495876061,
+      "end": 1500000010,
       "time": [{
         "start": 800,
         "end": 1200
@@ -26,7 +26,7 @@
       "en": "Enjoy the visit of the Galle Fort, an amazing place unique in it's world. With me, you can visit the place from dawn to dusk."
     },
     "type": "foot",
-    "duration": "200",
+    "duration": 200,
     "owner": {
       "name": "Kasun Samarasinghe",
       "country": "lk",
@@ -34,22 +34,20 @@
         "en", "si"
       ],
       "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAgZAAAAJDExZDE1ODkzLTViYmMtNDI1OS1iYzBhLWU4ODk5YmJkOGZlYw.jpg",
-      "contact": {
-        "phone": "+41799646355",
-        "email": "kasun@anthillsolutions.ch"
-      }
+      "phone": "+41799646355",
+      "email": "kasun@anthillsolutions.ch"
     }
   }, {
     "latitude": 43.425769,
     "longitude": 6.770083,
     "place": "Saint-Raphael, France",
-    "date_created": "1499015452",
-    "date_modified": "1499015452",
-    "date_published": "1499015452",
+    "date_created": 1499015452,
+    "date_modified": 1499015452,
+    "date_published": 1499015452,
     "image": "http://www.ville-saintraphael.fr/contenu/images/patchwork/la-mairie.jpg",
     "availability": {
-      "start": "1499015452",
-      "end": "1500000010",
+      "start": 1499015452,
+      "end": 1500000010,
       "time": [{
         "start": 1000,
         "end": 1200
@@ -74,7 +72,7 @@
       "fr": "Visitez la maison typique méditerranéenne d'une mairie."
     },
     "type": "foot",
-    "duration": "100",
+    "duration": 100,
     "owner": {
       "name": "Pierre Repetto-Andipatin",
       "country": "fr",
@@ -82,22 +80,20 @@
         "en", "fr", "it"
       ],
       "avatar": "https://s.gravatar.com/avatar/e7aec943b0298ba13e3844e094504161?s=80",
-      "contact": {
-        "phone": "+41799646355",
-        "email": "pierre@anthillsolutions.ch"
-      }
+      "phone": "+41799646355",
+      "email": "pierre@anthillsolutions.ch"
     }
   }, {
     "latitude": 7.204571,
     "longitude": 79.880869,
     "place": "Negombo, Sri-Lanka",
-    "date_created": "1499081658",
-    "date_modified": "1499081658",
-    "date_published": "1499081658",
+    "date_created": 1499081658,
+    "date_modified": 1499081658,
+    "date_published": 1499081658,
     "image": "http://wikitravel.org/upload/shared//5/5c/Negombo_beachs.jpeg",
     "availability": {
-      "start": "1499081658",
-      "end": "1500000010",
+      "start": 1499081658,
+      "end": 1500000010,
       "time": [{
         "start": 1000,
         "end": 2000
@@ -111,7 +107,7 @@
       "en": "Enjoy a chilled place close to the airport."
     },
     "type": "foot",
-    "duration": "100",
+    "duration": 100,
     "owner": {
       "name": "Akila Nonis",
       "country": "lk",
@@ -119,22 +115,20 @@
         "en", "si"
       ],
       "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/034/2f9/1197647.jpg",
-      "contact": {
-        "phone": "+41799646355",
-        "email": "akila@anthillsolutions.ch"
-      }
+      "phone": "+41799646355",
+      "email": "akila@anthillsolutions.ch"
     }
   }, {
     "latitude": 46.2050282,
     "longitude": 6.126579,
     "place": "Geneva, Switzerland",
-    "date_created": "1499088861",
-    "date_modified": "1499088861",
-    "date_published": "1499088861",
+    "date_created": 1499088861,
+    "date_modified": 1499088861,
+    "date_published": 1499088861,
     "image": "http://www.site-archeologique.ch/img_site/presse-3.jpg",
     "availability": {
-      "start": "1499088861",
-      "end": "1500000010",
+      "start": 1499088861,
+      "end": 1500000010,
       "time": [{
         "start": 1000,
         "end": 1400
@@ -148,7 +142,7 @@
       "en": "Visit the most iconic religious place in Geneva."
     },
     "type": "foot",
-    "duration": "20",
+    "duration": 20,
     "owner": {
       "name": "Pierre Repetto-Andipatin",
       "country": "ch",
@@ -156,10 +150,8 @@
         "en", "fr", "it"
       ],
       "avatar": "https://s.gravatar.com/avatar/e7aec943b0298ba13e3844e094504161?s=80",
-      "contact": {
-        "phone": "+41799646355",
-        "email": "pierre@anthillsolutions.ch"
-      }
+      "phone": "+41799646355",
+      "email": "pierre@anthillsolutions.ch"
     }
   }]
 }
