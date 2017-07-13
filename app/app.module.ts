@@ -10,6 +10,7 @@ import { AppComponent } from "./app.component";
 import { routes, navigatableComponents } from "./app.routing";
 
 import { TrimNamePipe } from "./pipes/trim.pipe";
+import { I18nPipe } from "./pipes/i18n.pipe";
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { TrimNamePipe } from "./pipes/trim.pipe";
   declarations: [
     AppComponent,
     TrimNamePipe,
+    I18nPipe,
     ...navigatableComponents
   ],
   bootstrap: [AppComponent]

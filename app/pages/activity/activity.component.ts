@@ -15,9 +15,7 @@ import moment = require("moment");
 export class ActivityComponent implements OnInit {
 
   item: Activity;
-  text: string;
   price: string;
-  title: string;
   duration: string;
 
   constructor(private routerExtensions: RouterExtensions, private route: ActivatedRoute) {
@@ -25,15 +23,7 @@ export class ActivityComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.item = new Activity().deserialize(JSON.parse(params["item"]));
       this.duration = moment.duration(this.item.duration, "m").humanize();
-      this.text = Activity.getI18n(this.item, 'description', 'en');
       this.price = this.item.price.toString();
-      this.title = "Title";
-      console.log(this.item.owner.avatar);
-      try {
-        this.title = Activity.getI18n(this.item, 'title', 'en');
-      } catch (err) {
-        console.error("activity: no title provided");
-      }
     });
   }
 

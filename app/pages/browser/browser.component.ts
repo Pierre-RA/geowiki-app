@@ -14,7 +14,7 @@ import * as fs from "tns-core-modules/file-system";
 })
 
 export class BrowserComponent implements OnInit {
-  public activityList: Array<Object> = [];
+  public activityList: Array<Activity> = [];
 
   constructor(private routerExtensions: RouterExtensions) {}
 
@@ -30,14 +30,11 @@ export class BrowserComponent implements OnInit {
         try {
           let json = JSON.parse(content);
           json.results.forEach(entity => {
-            entity.text = Activity.getI18n(entity, "description", "en");
-            this.activityList.push(entity);
+            this.activityList.push(new Activity().deserialize(entity));
           });
         } catch (err) {
-          throw new Error('Could not parse JSON file');
+          throw new Error('Could not parse JSON file' + err);
         }
-      }, function (error) {
-        throw new Error('Could not read JSON file');
       });
   }
 

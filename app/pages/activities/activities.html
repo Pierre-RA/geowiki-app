@@ -9,7 +9,7 @@
           <StackLayout (tap)="goTo(item)">
             <Image src="{{ item.image }}"></Image>
             <Label [text]="item.place"></Label>
-            <Label [text]="text"></Label>
+            <Label [text]="item.description | i18n"></Label>
           </StackLayout>
         </ng-template>
       </ListView>

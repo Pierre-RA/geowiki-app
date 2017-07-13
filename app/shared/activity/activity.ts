@@ -17,37 +17,39 @@ export class Activity implements Serializable<Activity> {
   place: string;
   title: Description;
 
-  static getI18n(activity: Activity, key: string, lang: string): string {
-    if (!activity) {
-      throw Error("activity not found.");
-    }
-    if (!activity[key]) {
+  getI18n(key: string, lang: string): string {
+    if (!this[key]) {
       throw Error("key " + key + " for activity was not found.");
     }
-    if (activity[key][lang]) {
-      return activity[key][lang];
+    if (this[key][lang]) {
+      return this[key][lang];
     }
-    if (activity[key]["en"]) {
-      return activity[key]["en"];
+    if (this[key]["en"]) {
+      return this[key]["en"];
     }
     throw Error("Neither " + lang + " nor default en have beend found for activity.");
   }
 
   deserialize(input) {
-    this.latitude = input.latitude;
-    this.longitude = input.longitude;
-    this.date_created = new Date(input.date_created);
-    this.date_modified = new Date(input.date_modified);
-    this.date_published = new Date(input.date_published);
-    this.image = input.image;
-    this.availability = new Availability().deserialize(input.availability);
-    this.price = new Price().deserialize(input.price);
-    this.description = new Description().deserialize(input.description);
-    this.type = input.type;
-    this.duration = input.duration;
-    this.owner = new User().deserialize(input.owner);
-    this.place = input.place;
-    this.title = new Description().deserialize(input.description);
+    try {
+      this.latitude = input.latitude;
+      this.longitude = input.longitude;
+      this.date_created = new Date(input.date_created);
+      this.date_modified = new Date(input.date_modified);
+      this.date_published = new Date(input.date_published);
+      this.image = input.image;
+      this.availability = new Availability().deserialize(input.availability);
+      this.price = new Price().deserialize(input.price);
+      this.description = new Description().deserialize(input.description);
+      this.type = input.type;
+      this.duration = input.duration;
+      this.owner = new User().deserialize(input.owner);
+      this.place = input.place;
+      this.title = new Description().deserialize(input.description);
+    } catch(err) {
+      throw new Error('error at activity ' + err);
+    }
+
     return this;
   }
 }
@@ -58,11 +60,17 @@ export class Availability implements Serializable<Availability> {
   time: Period[];
 
   deserialize(input) {
-    this.start = new Date(input.start);
-    this.end = new Date(input.end);
-    input.period.forEach(entity => {
-      this.time.push(new Period().deserialize(input.period));
-    });
+    try {
+      this.start = new Date(input.start);
+      this.end = new Date(input.end);
+      this.time = [];
+      input.time.forEach(entity => {
+        this.time.push(new Period().deserialize(entity));
+      });
+    } catch(err) {
+      throw new Error('Error at Availability. ' + err);
+    }
+
     return this;
   }
 }
@@ -72,8 +80,8 @@ export class Period implements Serializable<Period> {
   end: number;
 
   deserialize(input) {
-    this.start = input.start;
-    this.end = input.end;
+    this.start = input.start || 0;
+    this.end = input.end || 0;
     return this;
   }
 }
@@ -87,8 +95,8 @@ export class Price implements Serializable<Price> {
   }
 
   deserialize(input) {
-    this.currency = input.currency;
-    this.amount = input.amount;
+    this.currency = input.currency || "";
+    this.amount = input.amount || "";
     return this;
   }
 }

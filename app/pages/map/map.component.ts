@@ -4,6 +4,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { registerElement } from "nativescript-angular/element-registry";
 import { MapView, Marker, Position } from 'nativescript-google-maps-sdk';
 import { Position as LocalPosition } from "../../shared/position/position";
+import { I18nPipe } from "../../pipes/i18n.pipe";
 import { Activity } from "../../shared/activity/activity";
 import * as ImageModule from "tns-core-modules/ui/image";
 import { SearchBar } from "ui/search-bar";
@@ -106,7 +107,7 @@ export class MapComponent implements OnInit {
     let marker = new Marker();
     marker.position = Position.positionFromLatLng(temp.latitude, temp.longitude);
     marker.title = temp.place;
-    marker.snippet = Activity.getI18n(temp, 'title', 'en');
+    marker.snippet = new I18nPipe().transform(temp.title);
     marker.userData = {index: index};
     this.mapView.addMarker(marker);
   }
