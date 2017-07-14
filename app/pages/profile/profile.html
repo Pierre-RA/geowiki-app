@@ -1,10 +1,22 @@
 <ActionBar title="Profile">
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onBackTap($event)"></NavigationButton>
 </ActionBar>
-<GridLayout columns="*, 4*, auto" rows="auto, *">
-  <Image col="0" [src]="user.avatar" class="rounded"></Image>
-  <StackLayout col="1">
-    <Label [text]="user.name | trimName" class="title"></Label>
-    <Label [text]="user.country"></Label>
-  </StackLayout>
-</GridLayout>
+<StackLayout>
+  <GridLayout columns="*, 4*" rows="auto, auto" class="space-up">
+    <Image col="0" [src]="user.avatar" class="rounded"></Image>
+    <StackLayout col="1">
+      <Label [text]="user.name | trimName" class="title"></Label>
+      <Label [text]="user.country"></Label>
+    </StackLayout>
+  </GridLayout>
+  <GridLayout columns="*,2*" rows="auto,auto,auto,auto">
+    <Label col="0" row="0" text="email" class="element"></Label>
+    <Label col="1" row="0" [text]="user.email" class="element"></Label>
+    <Label col="0" row="1" text="phone" class="element"></Label>
+    <Label col="1" row="1" [text]="user.phone" class="element"></Label>
+    <Label col="0" row="2" text="currency" class="element"></Label>
+    <Label col="1" row="2" [text]="user.currency" class="element"></Label>
+    <Label col="0" row="3" text="language" class="element"></Label>
+    <Label col="1" row="3" [text]="user.i18n" class="element"></Label>
+  </GridLayout>
+</StackLayout>
