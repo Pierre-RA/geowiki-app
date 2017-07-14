@@ -23,7 +23,7 @@ export class User implements Serializable<User> {
     this.name = input.name;
     this.email = input.email;
     this.password = input.password || "";
-    this.phone = input.phone || "";
+    this.phone = input.phone;
     this.country = input.country;
     this.languages = [];
     if (input.languages) {

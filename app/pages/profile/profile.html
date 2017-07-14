@@ -13,7 +13,7 @@
     <Label col="0" row="0" text="email" class="element"></Label>
     <Label col="1" row="0" [text]="user.email" class="element"></Label>
     <Label col="0" row="1" text="phone" class="element"></Label>
-    <Label col="1" row="1" [text]="user.phone" class="element"></Label>
+    <Label col="1" row="1" [text]="user.phone | phoneNumber" class="element"></Label>
     <Label col="0" row="2" text="currency" class="element"></Label>
     <Label col="1" row="2" [text]="user.currency" class="element"></Label>
     <Label col="0" row="3" text="language" class="element"></Label>
