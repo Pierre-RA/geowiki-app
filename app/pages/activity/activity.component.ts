@@ -34,4 +34,17 @@ export class ActivityComponent implements OnInit {
   onBackTap() {
     this.routerExtensions.back();
   }
+
+  onProfileTap() {
+    this.routerExtensions.navigate(["/profile"], {
+      transition: {
+        name: "fade",
+        duration: 500,
+        curve: "linear"
+      },
+      queryParams: {
+        user: JSON.stringify(this.item.owner)
+      }
+    });
+  }
 }
